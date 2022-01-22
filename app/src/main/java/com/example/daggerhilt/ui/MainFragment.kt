@@ -29,6 +29,13 @@ class MainFragment (
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.tvDaName.text = databaseName
+
+        binding.btnMainFragment.setOnClickListener {
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.main_fragment_container, HomeFragment::class.java, null)
+                ?.addToBackStack("MainActivitiy")
+                ?.commit()
+        }
     }
 
 
