@@ -3,6 +3,8 @@ package com.example.daggerhilt.module
 import android.content.Context
 import com.example.daggerhilt.qualifier.ApiKey
 import com.example.daggerhilt.qualifier.DatabaseName
+import com.example.daggerhilt.repository.UserRepository
+import com.example.daggerhilt.repository.UserRepositoryImpl
 import com.example.daggerhilt.util.DatabaseService
 import dagger.Module
 import dagger.Provides
@@ -33,5 +35,11 @@ object ApplicationModule {
     @Provides
     fun provideDatabaseService(@ApplicationContext context: Context) : DatabaseService {
         return DatabaseService(context)
+    }
+
+    @Singleton
+    @Provides
+    fun provideUserRepository(@DatabaseName databaseName: String) : UserRepositoryImpl {
+        return UserRepositoryImpl(databaseName)
     }
 }

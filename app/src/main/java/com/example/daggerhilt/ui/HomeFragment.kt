@@ -9,8 +9,10 @@ import com.example.daggerhilt.HomeViewModel
 import com.example.daggerhilt.R
 import com.example.daggerhilt.databinding.FragmentHomeBinding
 import com.example.daggerhilt.qualifier.ApiKey
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class HomeFragment @Inject constructor(
     @ApiKey private val apiKey: String
 ) : Fragment() {

@@ -14,17 +14,10 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var car : Car
-
-    @Inject
-    lateinit var carFunctions: CarFunctionsImpl
-
-    @Inject
-    lateinit var databaseService : DatabaseService
-
-    @Inject
-    lateinit var appFragmentFactory: AppFragmentFactory
+    @Inject lateinit var car : Car
+    @Inject lateinit var carFunctions: CarFunctionsImpl
+    @Inject lateinit var databaseService : DatabaseService
+    @Inject lateinit var appFragmentFactory: AppFragmentFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
