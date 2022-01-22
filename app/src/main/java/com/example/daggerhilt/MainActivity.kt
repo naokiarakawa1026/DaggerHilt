@@ -3,6 +3,7 @@ package com.example.daggerhilt
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.daggerhilt.ui.MainFragment
 import com.example.daggerhilt.util.Battery
 import com.example.daggerhilt.util.Car
 import com.example.daggerhilt.util.DatabaseService
@@ -22,6 +23,9 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var databaseService : DatabaseService
 
+    @Inject
+    lateinit var appFragmentFactory: AppFragmentFactory
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,6 +39,11 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "$battery")
         Log.d(TAG, "$carFunc")
         Log.d(TAG, "$addResult")
+
+        supportFragmentManager.fragmentFactory = appFragmentFactory
+        supportFragmentManager.beginTransaction().replace(R.id.main_fragment_container, MainFragment::class.java, null)
+            .addToBackStack("MainActivity")
+            .commit()
     }
 
     companion object {

@@ -37,11 +37,11 @@ class ActivityModule {
         return CarFunctionsImpl(carRepository)
     }
 
-    @ActivityScoped
-    @Provides
-    fun provideDatabaseService(@ActivityContext context: Context) : DatabaseService {
-        return DatabaseService(context)
-    }
+//    @ActivityScoped
+//    @Provides
+//    fun provideDatabaseService(@ActivityContext context: Context) : DatabaseService {
+//        return DatabaseService(context)
+//    }
 
 //    @Binds
 //    abstract fun bindFunction(
