@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var car : Car
 
     @Inject
-    lateinit var carFunctions: CarFunctions
+    lateinit var carFunctions: CarFunctionsImpl
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,10 +25,12 @@ class MainActivity : AppCompatActivity() {
         val name = car.getCarName()
         val battery = car.getBatterySize()
         val carFunc = carFunctions.doDrive()
+        val addResult = carFunctions.insert()
 
         Log.d(TAG, "$name")
         Log.d(TAG, "$battery")
         Log.d(TAG, "$carFunc")
+        Log.d(TAG, "$addResult")
     }
 
     companion object {
